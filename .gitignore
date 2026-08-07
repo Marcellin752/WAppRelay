@@ -3,3 +3,5 @@ venv/
 *~
 **/*~
 docs/whatsapp-relay-cahier-des-charges.md
+__pycache__/
+**/__pycache__/
