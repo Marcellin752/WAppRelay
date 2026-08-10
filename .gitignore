@@ -1,5 +1,6 @@
 .env
 venv/
+.venv/
 *~
 **/*~
 docs/whatsapp-relay-cahier-des-charges.md
