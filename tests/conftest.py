@@ -13,4 +13,4 @@ def settings_env(monkeypatch):
     
     get_settings.cache_clear()
     yield
-    get_settings.cache_clear()s
+    get_settings.cache_clear()
