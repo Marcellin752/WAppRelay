@@ -10,6 +10,7 @@ def settings_env(monkeypatch):
     monkeypatch.setenv("APP_SECRET", "test_app_secret")
     monkeypatch.setenv("ACCESS_TOKEN", "test_access_token")
     monkeypatch.setenv("PHONE_NUMBER_ID", "123456789")
+    monkeypatch.setenv("RELAY_TARGET_NUMBER", "22990000000")
     
     get_settings.cache_clear()
     yield

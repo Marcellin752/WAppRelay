@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     APP_SECRET: str
     ACCESS_TOKEN: str
     PHONE_NUMBER_ID: int
+    RELAY_TARGET_NUMBER: int
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
