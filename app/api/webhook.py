@@ -3,6 +3,7 @@ import json
 from app.config import get_settings
 from app.core.security import verify_signature
 from app.services.message_parser import extract_messages
+from app.services.message_forwarder import MessageForwarder
 
 router = APIRouter()
 
@@ -44,10 +45,12 @@ async def receive_webhook(request: Request, background_tasks: BackgroundTasks):
 
     return {"status": "received"}
 
+_forwarder: MessageForwarder | None = None
+def get_forwarder() -> MessageForwarder:
+    global _forwarder
+    if _forwarder is None:
+        _forwarder = MessageForwarder()
+    return _forwarder
+
 async def process_message(message: dict) -> None:
-    """Traitement d'un message en arrière-plan."""
-    
-    print(
-        f"message_received: type={message.get('type')} "
-        f"from={message.get('from')} id={message.get('id')}"
-    )
+    await get_forwarder().forward(message)

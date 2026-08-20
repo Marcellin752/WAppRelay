@@ -21,6 +21,6 @@ class MessageForwarder:
         timestamp = int(message.get("timestamp", 0))
         date = datetime.fromtimestamp(timestamp, tz=timezone.utc).strftime("%d/%m/%Y %H:%M")
 
-        content = message.get("text", {}).get("body", "[content non text]")
+        content = message.get("text", {}).get("body", "[content no text]")
 
         return f"from : {sender} — {date}\n{content}"
